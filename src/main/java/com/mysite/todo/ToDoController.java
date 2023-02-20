@@ -17,4 +17,9 @@ public class ToDoController {
         model.addAttribute("toDoEntityList",toDoEntityList);
         return "todoList";
     }
+
+    @RequestMapping("/")
+    public String root(){
+        return "redirect:/todo";
+    }
 }
