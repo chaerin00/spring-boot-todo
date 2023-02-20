@@ -35,4 +35,10 @@ public class ToDoController {
         this.toDoService.delete(id);
         return "redirect:/todo";
     }
+
+    @PutMapping("/todo/update/{id}")
+    public String todoUpdate(@RequestBody String content, @PathVariable Integer id){
+        this.toDoService.update(id, content);
+        return "redirect:/todo";
+    }
 }
