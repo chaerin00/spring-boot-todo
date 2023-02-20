@@ -16,15 +16,35 @@
         <th>번호</th>
         <th>할 일</th>
         <th>수행 여부</th>
+        <th>삭제</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="todoentity : ${toDoEntityList}">
+    <tr th:block th:each="todoentity : ${toDoEntityList}" >
         <td th:text="${todoentity.id}"></td>
         <td th:text="${todoentity.content}"></td>
         <td th:text="${todoentity.completed}"></td>
+        <td><button id="delete-btn" th:onclick="deleteItem([[${todoentity.id}]])">삭제</button></td>
     </tr>
     </tbody>
 </table>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+function deleteItem(id){
+    console.log(id)
+    const url = "/todo/delete/"+id
+    $.ajax({
+        type:'delete',
+        url:url,
+        contentType:'application/json; charset=utf-8'
+        }).done(function() {
+        alert('할 일이 삭제되었습니다.');
+        window.location.href = '/';
+        }).fail(function (error){
+        alert(JSON.stringify(error));
+        });
+       }
+</script>
 </html>

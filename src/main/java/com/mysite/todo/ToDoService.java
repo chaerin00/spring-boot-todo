@@ -19,4 +19,10 @@ public class ToDoService {
         toDoEntity.setCompleted(false);
         this.toDoRepository.save(toDoEntity);
     }
+
+    public void delete(Integer id){
+        ToDoEntity toDoEntity=toDoRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 아이템이 없습니다. id="+ id));
+        this.toDoRepository.delete(toDoEntity);
+    }
 }
