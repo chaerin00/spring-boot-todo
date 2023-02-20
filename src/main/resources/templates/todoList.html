@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+<h1>투두리스트</h1>
+<table>
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>할 일</th>
+        <th>수행 여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todoentity : ${toDoEntityList}">
+        <td th:text="${todoentity.id}"></td>
+        <td th:text="${todoentity.content}"></td>
+        <td th:text="${todoentity.completed}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
