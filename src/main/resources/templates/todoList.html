@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>투두리스트</h1>
+<form th:action="@{/todo/create}" method="post">
+    <input name="content" placeholder="오늘의 할 일을 적어보세요!"/>
+    <button>작성</button>
+</form>
 <table>
     <thead>
     <tr>

@@ -12,4 +12,11 @@ public class ToDoService {
     public List<ToDoEntity> getList(){
         return this.toDoRepository.findAll();
     }
+
+    public void create(String content){
+        ToDoEntity toDoEntity = new ToDoEntity();
+        toDoEntity.setContent(content);
+        toDoEntity.setCompleted(false);
+        this.toDoRepository.save(toDoEntity);
+    }
 }
